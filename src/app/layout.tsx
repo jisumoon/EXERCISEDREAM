@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_KR, Onest } from "next/font/google";
+import { AuthProvider } from "@/context/AuthContext";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "../styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const notoSansKr = Noto_Sans_KR({
+  variable: "--notoSansKr",
+  preload: false,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const onest = Onest({
+  variable: "--onest",
   subsets: ["latin"],
 });
 
@@ -23,12 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="ko">
+        <body
+          className={`${notoSansKr.variable} ${onest.variable} font-mainfont antialiased px-5`}
+        >
+          <header>
+            <Header />
+          </header>
+          {children}
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

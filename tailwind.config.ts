@@ -26,21 +26,14 @@ export default {
       },
       spacing: {
         18: "4.5rem",
+        182: "45.5rem" /* 728px */,
+        246: "61.5rem" /* 984px*/,
       },
     },
     fontFamily: {
-      noto: [
-        "Noto Sans KR",
-        "ui-sans-serif",
-        "system-ui",
-        "sans-serif",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Noto Color Emoji",
-      ],
-      onest: [
-        "Onest",
+      mainfont: [
+        "var(--onest)",
+        "var(--notoSansKr)",
         "ui-sans-serif",
         "system-ui",
         "sans-serif",
